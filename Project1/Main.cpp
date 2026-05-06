@@ -1,0 +1,196 @@
+/*
+    Htet, Phyo Zayar (Team Leader)
+    Ligatsyah, Nathan
+    Puthy, Piseth
+    Pha, Sai
+
+    Spring 2026
+    CS A250 - C++ 2
+
+    Testing
+*/
+
+#include <iostream>
+#include "Donor.h"
+#include "CollegeList.h"
+//#include "Donation.h"
+//#include "DonationList.h"
+//#include "DonationManager.h"
+//#include "FileLoader.h"
+
+using namespace std;
+
+int main()
+{
+    // IMPORTANT TESTING RULES:
+    //
+    // 1. DO NOT delete or change any of the provided test comments.
+    // 2. Each test must PRODUCE OUTPUT--silent or skipped tests will lose points.
+    // 3. If a test fails, fix YOUR implementation, not the test.
+    // 4. You may add additional tests for clarity, but do not remove any required ones.
+
+    cout << "===== PHASE 1: Testing Donor =====\n\n";
+
+    // Test parameterized constructor + all accessors.
+    // Your code here...
+    cout << "-- Testing parameterized constructor --" << endl;
+
+	Donor d1("Alice Smith", 1001);
+
+    cout << "Input: (\"Alice Smimth\", 1001)" << endl;
+    cout << "Expected name: Alice Smith" << endl;
+    cout << "Actual name: " << d1.getDonorName() << endl;
+    
+    cout << "Expected ID: 1001" << endl;
+    cout << "Actual ID: " << d1.getDonorID() << endl;
+
+    // Test Donor::operator<.
+    // Your code here...
+    
+    cout << "\n-- Testing operator< --" << endl;
+
+    Donor d2("Bob Jones", 1003);
+    cout << "Comparing donor ID 1001 with donor ID 1003" << endl;
+    cout << "Expected: 1" << endl;
+    cout << "Actual  : " << (d1 < d2) << endl;
+
+
+    cout << "\n===== PHASE 2: Testing CollegeList =====\n\n";
+
+    // Create CollegeList object.
+    // Your code here...
+    CollegeList cl;
+
+    // Test CollegeList::addCollege.
+    // Your code here...
+    cl.addCollege("OCC", "Orange Coast College");
+    cl.addCollege("GWC", "Golden West College");
+    cl.addCollege("CCC", "Coastline Community College");
+
+    cout << "-- Testing addCollege() --\n";
+    cout << "Added 3 colleges.\n";
+
+    // Test CollegeList::getCollegeName with an existing college code.
+    // Your code here...
+    cout << "\n-- Testing getCollegeName() --\n";
+    cout << "Expected: Orange Coast College\n";
+    cout << "Actual:   " << cl.getCollegeName("OCC") << "\n";
+
+    // Test CollegeList::printColleges.
+    // Your code here...
+    cout << "\n-- Testing printColleges() --\n";
+    cl.printColleges();
+
+    // Test CollegeList::getColleges.
+    // Your code here...
+    cout << "\n-- Testing getColleges() --\n";
+    cout << "Expected size: 3\n";
+    cout << "Actual size:   " << cl.getColleges().size() << "\n";
+
+    cout << "\n===== PHASE 3: Testing Donation =====\n\n";
+
+    // Test parameterized constructor + all accessors.
+    // Your code here...
+
+
+    cout << "\n===== PHASE 4: Testing DonationList =====\n\n";
+
+    // Create DonationList object.
+    // Your code here...
+
+    // Test DonationList::getNumOfDonations on an empty list.
+    // Your code here...
+
+    // Test DonationList::getFirst and DonationList::getLast on an empty list.
+    // Your code here...
+
+    // Create and add a few Donation objects to the list.
+    // Your code here...
+
+    // Test DonationList::getNumOfDonations after adding donations.
+    // Your code here...
+
+    // Test DonationList::getFirst.
+    // Print the data stored in the first node.
+    // Your code here...
+
+    // Test DonationList::getLast.
+    // Print the data stored in the last node.
+    // Your code here...
+
+    // Traverse the DonationList manually using getFirst and next.
+    // Print all donations in the list.
+    // Your code here...
+
+
+    cout << "\n===== PHASE 5: Testing DonationManager with manual data =====\n\n";
+
+    // Create DonationManager object.
+    // Your code here...
+
+    // Test DonationManager::addCollege by adding several colleges.
+    // Your code here...
+
+    // Test DonationManager::printColleges.
+    // Your code here...
+
+    // Test DonationManager::addDonor by adding several donors.
+    // Print the ID returned for each donor.
+    // Your code here...
+
+    // Test DonationManager::addDonation by adding several donations.
+    // Your code here...
+
+    // Test DonationManager::printDonationsByCollege.
+    // Your code here...
+
+    // Test DonationManager::printDonationsByDonor.
+    // Your code here...
+
+    // Test DonationManager::printTotalsByCollege.
+    // Your code here...
+
+    // Test DonationManager::printTotalsByDonor.
+    // Your code here...
+
+    // Test DonationManager::printStatistics.
+    // Your code here...
+
+    // Test DonationManager::printHighestDonor.
+    // Your code here...
+
+    // Test DonationManager::printCollegeWithHighestTotal.
+    // Your code here...
+
+
+    cout << "\n===== PHASE 6: Testing FileLoader with colleges.csv and donations.csv =====\n\n";
+
+    // Create DonationManager object.
+    // Your code here...
+
+    // Test loadCollegesFromFile.
+    // Your code here...
+
+    // After calling loadCollegesFromFile, test DonationManager::printColleges.
+    // Your code here...
+
+    // Test loadDonationsFromFile.
+    // Your code here...
+
+    // After calling loadDonationsFromFile, test all report functions:
+    // printDonationsByCollege
+    // printDonationsByDonor
+    // printTotalsByCollege
+    // printTotalsByDonor
+    // printStatistics
+    // printHighestDonor
+    // printCollegeWithHighestTotal
+    // Your code here...
+
+
+    cout << "\n===== All tests completed. =====\n";
+
+    cout << endl;
+    system("Pause");
+    return 0;
+}

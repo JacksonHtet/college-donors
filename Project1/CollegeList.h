@@ -1,0 +1,30 @@
+/*
+    Htet, Phyo Zayar (Team Leader)
+    Ligatsyah, Nathan
+    Puthy, Piseth
+    Pha, Sai
+
+    Spring 2026
+    CS A250 - C++ 2
+
+    College Donor
+*/
+
+#ifndef COLLEGELIST_H
+#define COLLEGELIST_H
+
+#include <string>
+#include <map>
+
+class CollegeList 
+{
+public:
+    void addCollege(const std::string& code, const std::string& name);
+    std::string getCollegeName(const std::string& code) const;
+    void printColleges() const;
+    const std::map<std::string, std::string>& getColleges() const;
+private:
+    std::map<std::string, std::string> colleges;
+};
+
+#endif

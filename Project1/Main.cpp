@@ -13,7 +13,7 @@
 #include <iostream>
 #include "Donor.h"
 #include "CollegeList.h"
-//#include "Donation.h"
+#include "Donation.h"
 //#include "DonationList.h"
 //#include "DonationManager.h"
 //#include "FileLoader.h"
@@ -87,11 +87,24 @@ int main()
     cout << "Expected size: 3\n";
     cout << "Actual size:   " << cl.getColleges().size() << "\n";
 
-    cout << "\n===== PHASE 3: Testing Donation =====\n\n";
+    cout << "\n===== PHASE 3: Testing Donation =====\n";
 
     // Test parameterized constructor + all accessors.
     // Your code here...
+    cout << "-- Testing parameterized constructor --\n" << endl;
 
+    Donation don1("John Doe", "OCC", 500.00);
+
+    cout << "Input: (\"John Doe\", \"OCC\", 500.00)\n" << endl;
+	// test GetDornorNamae function
+    cout << "Expected donor name: John Doe" << endl;
+    cout << "Actual donor name: " << don1.getDonorName() << endl;
+	// test GetCollegeCode function
+    cout << "\nExpected college code: OCC" << endl;
+    cout << "Actual college code: " << don1.getCollegeCode() << endl;
+	// test GetAmount function
+    cout << "\nExpected amount: 500" << endl;
+    cout << "Actual amount: " << don1.getAmount() << endl;
 
     cout << "\n===== PHASE 4: Testing DonationList =====\n\n";
 

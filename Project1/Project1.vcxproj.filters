@@ -24,6 +24,9 @@
     <ClInclude Include="Donation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DonationList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Donor.cpp">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Donation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DonationList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,7 +14,7 @@
 #include "Donor.h"
 #include "CollegeList.h"
 #include "Donation.h"
-//#include "DonationList.h"
+#include "DonationList.h"
 //#include "DonationManager.h"
 //#include "FileLoader.h"
 
@@ -95,9 +95,9 @@ int main()
 
     Donation don1("John Doe", "OCC", 500.00);
 
-    cout << "Input: (\"John Doe\", \"OCC\", 500.00)\n" << endl;
-	// test GetDornorNamae function
-    cout << "Expected donor name: John Doe" << endl;
+	cout << "Input: (\"John Doe\", \"OCC\", 500.00)\n" << endl;
+	// test GetDonorName function
+	cout << "Expected donor name: John Doe" << endl;
     cout << "Actual donor name: " << don1.getDonorName() << endl;
 	// test GetCollegeCode function
     cout << "\nExpected college code: OCC" << endl;
@@ -109,31 +109,51 @@ int main()
     cout << "\n===== PHASE 4: Testing DonationList =====\n\n";
 
     // Create DonationList object.
-    // Your code here...
+    DonationList donList;
 
     // Test DonationList::getNumOfDonations on an empty list.
-    // Your code here...
+    cout << "-- Testing getNumOfDonations() on empty list --\n";
+    cout << "Expected: 0\n";
+    cout << "Actual:   " << donList.getNumOfDonations() << "\n";
 
     // Test DonationList::getFirst and DonationList::getLast on an empty list.
-    // Your code here...
+    cout << "\n-- Testing getFirst() and getLast() on empty list --\n";
+    cout << "Expected: nullptr for both\n";
+    cout << "getFirst(): " << (donList.getFirst() == nullptr ? "nullptr" : "not nullptr") << "\n";
+    cout << "getLast():  " << (donList.getLast() == nullptr ? "nullptr" : "not nullptr") << "\n";
 
     // Create and add a few Donation objects to the list.
-    // Your code here...
+    cout << "\n-- Adding donations to list --\n";
+    donList.addDonation(Donation("John Doe", "OCC", 500.00));
+    donList.addDonation(Donation("Jane Smith", "GWC", 750.50));
+    donList.addDonation(Donation("Bob Johnson", "CCC", 1000.00));
+    cout << "Added 3 donations.\n";
 
     // Test DonationList::getNumOfDonations after adding donations.
-    // Your code here...
+    cout << "\n-- Testing getNumOfDonations() after adding donations --\n";
+    cout << "Expected: 3\n";
+    cout << "Actual:   " << donList.getNumOfDonations() << "\n";
 
-    // Test DonationList::getFirst.
-    // Print the data stored in the first node.
-    // Your code here...
+    // Test DonationList::getFirst and print the data stored in the first node.
+    cout << "\n-- Testing getFirst() --\n";
+    cout << "Expected donor: John Doe\n";
+    cout << "Actual donor:   " << donList.getFirst()->donation.getDonorName() << "\n";
+    cout << "Expected college: OCC\n";
+    cout << "Actual college:   " << donList.getFirst()->donation.getCollegeCode() << "\n";
 
-    // Test DonationList::getLast.
-    // Print the data stored in the last node.
-    // Your code here...
+    // Test DonationList::getLast and print the data stored in the last node.
+    cout << "\n-- Testing getLast() --\n";
+    cout << "Expected donor: Bob Johnson\n";
+    cout << "Actual donor:   " << donList.getLast()->donation.getDonorName() << "\n";
+    cout << "Expected college: CCC\n";
+    cout << "Actual college:   " << donList.getLast()->donation.getCollegeCode() << "\n";
 
     // Traverse the DonationList manually using getFirst and next.
-    // Print all donations in the list.
-    // Your code here...
+    cout << "\n-- Traversing all donations --\n";
+    for (auto node = donList.getFirst(); node != nullptr; node = node->next) {
+        cout << node->donation.getDonorName() << " | " << node->donation.getCollegeCode()
+             << " | $" << node->donation.getAmount() << "\n";
+    }
 
 
     cout << "\n===== PHASE 5: Testing DonationManager with manual data =====\n\n";

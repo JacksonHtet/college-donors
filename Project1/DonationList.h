@@ -7,30 +7,37 @@
     Spring 2026
     CS A250 - C++ 2
 
-    DonationList
+    College Donations
 */
 
 #ifndef DONATIONLIST_H
 #define DONATIONLIST_H
 
 #include "Donation.h"
+#include <string>
 
 struct DonationNode
 {
-    Donation donation;
+    Donation data;
     DonationNode* next;
+
+    DonationNode(const Donation& donation)
+        : data(donation), next(nullptr) {
+    }
 };
 
 class DonationList
 {
 public:
-    DonationList()
-        : first(nullptr), last(nullptr), numOfDonations(0) {}
+    // Constructor 
+    DonationList() : first(nullptr), last(nullptr), numOfDonations(0) {}
 
     int addDonation(const Donation& donation);
     int getNumOfDonations() const;
     DonationNode* getFirst() const;
     DonationNode* getLast() const;
+
+    // Destructor
     ~DonationList();
 
 private:

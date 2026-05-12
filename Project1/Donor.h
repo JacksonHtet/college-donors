@@ -7,7 +7,7 @@
     Spring 2026
     CS A250 - C++ 2
     
-    College Donor
+    College Donations
 */
 
 #ifndef DONOR_H
@@ -18,12 +18,11 @@
  class Donor 
  {
 	public:
-        Donor(std::string aDonorName, int aDonorID)
+        Donor(const std::string& aDonorName, int aDonorID)
             :donorName(aDonorName), donorID(aDonorID) {}
         
         std::string getDonorName() const;
         int getDonorID() const;
-
         bool operator<(const Donor& otherDonor) const;
 	
     private:
@@ -31,4 +30,5 @@
         int donorID;
 	
  };
+
 #endif

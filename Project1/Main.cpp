@@ -7,7 +7,7 @@
     Spring 2026
     CS A250 - C++ 2
 
-    Testing
+    Testing - College Donations
 */
 
 #include <iostream>
@@ -15,6 +15,8 @@
 #include "CollegeList.h"
 #include "Donation.h"
 #include "DonationList.h"
+#include "DonationManager.h"
+#include "FileLoader.h"
 //#include "DonationManager.h"
 //#include "FileLoader.h"
 
@@ -55,6 +57,9 @@ int main()
     cout << "Actual  : " << (d1 < d2) << endl;
 
 
+
+
+
     cout << "\n===== PHASE 2: Testing CollegeList =====\n\n";
 
     // Create CollegeList object.
@@ -87,6 +92,10 @@ int main()
     cout << "Expected size: 3\n";
     cout << "Actual size:   " << cl.getColleges().size() << "\n";
 
+
+
+
+
 	cout << "\n===== PHASE 3: Testing Donation =====\n\n";
 
 	// Test parameterized constructor + all accessors.
@@ -104,6 +113,9 @@ int main()
 	// test GetAmount function
 	cout << "\nExpected amount: 500" << endl;
 	cout << "Actual amount: " << don1.getAmount() << endl;
+
+
+
 
     cout << "\n===== PHASE 4: Testing DonationList =====\n\n";
 
@@ -143,21 +155,21 @@ int main()
     // Print the data stored in the first node.
     cout << "\n-- Testing getFirst() --" << endl;
     cout << "\nExpected donor name: Alice Smith" << endl;
-    cout << "Actual donor name: " << dl.getFirst()->donation.getDonorName() << endl;
+    cout << "Actual donor name: " << dl.getFirst()->data.getDonorName() << endl;
     cout << "\nExpected college code: OCC" << endl;
-    cout << "Actual college code: " << dl.getFirst()->donation.getCollegeCode() << endl;
+    cout << "Actual college code: " << dl.getFirst()->data.getCollegeCode() << endl;
     cout << "\nExpected amount: 1000" << endl;
-    cout << "Actual amount: " << dl.getFirst()->donation.getAmount() << endl;
+    cout << "Actual amount: " << dl.getFirst()->data.getAmount() << endl;
 
     // Test DonationList::getLast.
     // Print the data stored in the last node.
     cout << "\n-- Testing getLast() --" << endl;
     cout << "\nExpected donor name: Charlie Brown" << endl;
-    cout << "Actual donor name: " << dl.getLast()->donation.getDonorName() << endl;
+    cout << "Actual donor name: " << dl.getLast()->data.getDonorName() << endl;
     cout << "\nExpected college code: CCC" << endl;
-    cout << "Actual college code: " << dl.getLast()->donation.getCollegeCode() << endl;
+    cout << "Actual college code: " << dl.getLast()->data.getCollegeCode() << endl;
     cout << "\nExpected amount: 750" << endl;
-    cout << "Actual amount: " << dl.getLast()->donation.getAmount() << endl;
+    cout << "Actual amount: " << dl.getLast()->data.getAmount() << endl;
 
     // Traverse the DonationList manually using getFirst and next.
     // Print all donations in the list.
@@ -167,67 +179,129 @@ int main()
     while (current != nullptr)
     {
         cout << "\nDonation " << count << ":" << endl;
-        cout << "  Donor Name: " << current->donation.getDonorName() << endl;
-        cout << "  College Code: " << current->donation.getCollegeCode() << endl;
-        cout << "  Amount: " << current->donation.getAmount() << endl;
+        cout << "  Donor Name: " << current->data.getDonorName() << endl;
+        cout << "  College Code: " << current->data.getCollegeCode() << endl;
+        cout << "  Amount: " << current->data.getAmount() << endl;
         current = current->next;
         count++;
     }
 
 
+
+
+
     cout << "\n===== PHASE 5: Testing DonationManager with manual data =====\n\n";
 
     // Create DonationManager object.
-    // Your code here...
+    DonationManager manager;
 
     // Test DonationManager::addCollege by adding several colleges.
     // Your code here...
+    cout << "===== Testing addCollege =====" << endl;
+    manager.addCollege("OCC", "Orange Coast College");
+    manager.addCollege("GWC", "Golden West College");
+    manager.addCollege("SAC", "Santa Ana College");
+    cout << "Colleges added." << endl << endl;
 
     // Test DonationManager::printColleges.
     // Your code here...
+    cout << "===== Testing printColleges =====" << endl;
+    manager.printColleges();
+    cout << endl;
 
     // Test DonationManager::addDonor by adding several donors.
     // Print the ID returned for each donor.
     // Your code here...
+    cout << "===== Testing addDonor =====" << endl;
+
+    int id1 = manager.addDonor("Alice");
+    cout << "Alice ID: " << id1 << endl;
+
+    int id2 = manager.addDonor("Bob");
+    cout << "Bob ID: " << id2 << endl;
+
+    int id3 = manager.addDonor("Charlie");
+    cout << "Charlie ID: " << id3 << endl;
+
+    cout << endl;
 
     // Test DonationManager::addDonation by adding several donations.
     // Your code here...
+    cout << "===== Testing addDonation =====" << endl;
+
+    manager.addDonation("Alice", "OCC", 100);
+    manager.addDonation("Bob", "GWC", 50);
+    manager.addDonation("Charlie", "SAC", 200);
+
+    cout << "Donations added." << endl << endl;
 
     // Test DonationManager::printDonationsByCollege.
     // Your code here...
+    cout << "===== Testing printDonationsByCollege =====" << endl;
+    manager.printDonationsByCollege();
+    cout << endl;
 
     // Test DonationManager::printDonationsByDonor.
     // Your code here...
+    cout << "===== Testing printDonationsByDonor =====" << endl;
+    manager.printDonationsByDonor();
+    cout << endl;
 
     // Test DonationManager::printTotalsByCollege.
     // Your code here...
+    cout << "===== Testing printTotalsByCollege =====" << endl;
+    manager.printTotalsByCollege();
+    cout << endl;
 
     // Test DonationManager::printTotalsByDonor.
     // Your code here...
+    cout << "===== Testing printTotalsByDonor =====" << endl;
+    manager.printTotalsByDonor();
+    cout << endl;
+
 
     // Test DonationManager::printStatistics.
     // Your code here...
+    cout << "===== Testing printStatistics =====" << endl;
+    manager.printStatistics();
+    cout << endl;
 
     // Test DonationManager::printHighestDonor.
     // Your code here...
+    cout << "===== Testing printHighestDonor =====" << endl;
+    manager.printHighestDonor();
+    cout << endl;
 
     // Test DonationManager::printCollegeWithHighestTotal.
     // Your code here...
+    cout << "===== Testing printCollegeWithHighestTotal =====" << endl;
+    manager.printCollegeWithHighestTotal();
+    cout << endl;
+
+
+
+
 
 
     cout << "\n===== PHASE 6: Testing FileLoader with colleges.csv and donations.csv =====\n\n";
 
     // Create DonationManager object.
     // Your code here...
+	DonationManager manager2;
 
     // Test loadCollegesFromFile.
     // Your code here...
+	loadCollegesFromFile("colleges.csv", manager2);
 
     // After calling loadCollegesFromFile, test DonationManager::printColleges.
     // Your code here...
+    cout << "\nColleges loaded:\n";
+    manager2.printColleges();
+    cout << endl;
 
     // Test loadDonationsFromFile.
     // Your code here...
+	loadDonationsFromFile("donations.csv", manager2);
 
     // After calling loadDonationsFromFile, test all report functions:
     // printDonationsByCollege
@@ -238,6 +312,35 @@ int main()
     // printHighestDonor
     // printCollegeWithHighestTotal
     // Your code here...
+
+    cout << "\n===== Donations By College =====\n";
+    manager2.printDonationsByCollege();
+    cout << endl;
+
+    cout << "===== Donations By Donor =====\n";
+    manager2.printDonationsByDonor();
+    cout << endl;
+
+    cout << "===== Totals By College =====\n";
+    manager2.printTotalsByCollege();
+    cout << endl;
+
+    cout << "===== Totals By Donor =====\n";
+    manager2.printTotalsByDonor();
+    cout << endl;
+
+    cout << "===== Statistics =====\n";
+    manager2.printStatistics();
+    cout << endl;
+
+    cout << "===== Highest Donor =====\n";
+    manager2.printHighestDonor();
+    cout << endl;
+
+    cout << "===== College With Highest Total =====\n";
+    manager2.printCollegeWithHighestTotal();
+    cout << endl;
+
 
 
     cout << "\n===== All tests completed. =====\n";

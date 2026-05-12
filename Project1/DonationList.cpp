@@ -7,7 +7,7 @@
     Spring 2026
     CS A250 - C++ 2
 
-    DonationList
+    College Donations
 */
 
 #include "DonationList.h"
@@ -16,7 +16,7 @@ using namespace std;
 
 int DonationList::addDonation(const Donation& donation)
 {
-    DonationNode* newNode = new DonationNode{donation, nullptr};
+    DonationNode* newNode = new DonationNode(donation);
 
     if (first == nullptr)
     {

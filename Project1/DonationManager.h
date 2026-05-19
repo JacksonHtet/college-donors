@@ -32,6 +32,8 @@ public:
     int addDonor(const std::string& donorName);
     void addCollege(const std::string& collegeCode, const std::string& collegeName);
     void addDonation(const std::string& donorName, const std::string& collegeCode, double amount);
+    //overloading
+	void addDonation(const int donorID, const std::string& collegeCode, double amount);
 
     void printColleges() const;
     void printDonationsByCollege() const;

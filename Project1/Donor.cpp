@@ -11,7 +11,6 @@
 */
 
 #include "Donor.h"
-#include <string>
 
 using namespace std;
 

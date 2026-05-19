@@ -14,7 +14,6 @@
 #define DONATIONLIST_H
 
 #include "Donation.h"
-#include <string>
 
 struct DonationNode
 {
@@ -32,7 +31,8 @@ public:
     // Constructor 
     DonationList() : first(nullptr), last(nullptr), numOfDonations(0) {}
 
-    int addDonation(const Donation& donation);
+    void addDonation(const Donation& donation);
+
     int getNumOfDonations() const;
     DonationNode* getFirst() const;
     DonationNode* getLast() const;

@@ -23,6 +23,7 @@
         
         std::string getDonorName() const;
         int getDonorID() const;
+
         bool operator<(const Donor& otherDonor) const;
 	
     private:

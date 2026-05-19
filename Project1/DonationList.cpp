@@ -12,9 +12,7 @@
 
 #include "DonationList.h"
 
-using namespace std;
-
-int DonationList::addDonation(const Donation& donation)
+void DonationList::addDonation(const Donation& donation)
 {
     DonationNode* newNode = new DonationNode(donation);
 
@@ -30,7 +28,6 @@ int DonationList::addDonation(const Donation& donation)
     }
 
     numOfDonations++;
-    return numOfDonations;
 }
 
 int DonationList::getNumOfDonations() const
